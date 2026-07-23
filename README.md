@@ -1,66 +1,41 @@
-Lab 01 - Azure Resource Group
+# Lab 01 - Azure Resource Group
 
-Objective
+## Objective
 
-Create an Azure Resource Group to organize cloud resources for the Hybrid Infrastructure Lab.
-
----
-
-Azure Service
-
-- Azure Resource Group
+Create an Azure Resource Group to organize resources for the Azure Hybrid Infrastructure Lab.
 
 ---
 
-Steps Performed
-
-1. Logged into Azure Portal.
-2. Opened Resource Groups.
-3. Created a new Resource Group.
-4. Selected the deployment region.
-5. Verified successful deployment.
-
----
-
-Screenshots
-
-Azure Portal Dashboard
+## Azure Portal Dashboard
 
 ![Azure Dashboard](screenshots/01-azure-dashboard.png)
 
 ---
 
-Resource Groups
+## Resource Groups
 
-![Resource Groups](screenshots/02-resource-groups.png)
-
----
-Create Resource Group
-
-![Create Resource Group](screenshots/03-create-resource-group.png)
+![Resource Manager](screenshots/02-resource-manager.png)
 
 ---
 
-Review + Create
+## Create Resource Group
 
-![Review Create](screenshots/04-review-create.png)
-
----
-
-Deployment Successful
-
-![Deployment Success](screenshots/05-deployment-success.png)
+![Create Resource](screenshots/04-create-resource.png)
 
 ---
 
-Resource Group Overview
+## Resource Group Configuration
 
-![Overview](screenshots/06-resource-group-overview.png)
+![Create Resource Group](screenshots/05-create-resource-group.png)
 
 ---
 
-Skills Learned
+## Review + Create
 
-- Azure Resource Groups
-- Azure Portal Navigation
-- Resource Organization
+![Review Create](screenshots/06-review-create.png)
+
+---
+
+## Deployment Completed
+
+![Resource Group Created](screenshots/07-resource-group-created.png)
