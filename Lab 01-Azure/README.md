@@ -38,4 +38,10 @@ Create an Azure Resource Group to organize resources for the Azure Hybrid Infras
 
 ## Deployment Completed
 
+<<<<<<< HEAD:README.md
 ![Resource Group Created](screenshots/07-resource-group-created.png)
+=======
+## Deployment Completed
+
+![Resource Group Created](screenshots/07-resource-group-created.png)
+>>>>>>> 5299fbb (Labs 1to 20):Lab 01-Azure/README.md
