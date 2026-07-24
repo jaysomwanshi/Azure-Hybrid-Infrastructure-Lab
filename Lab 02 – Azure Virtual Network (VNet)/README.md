@@ -57,67 +57,67 @@ Azure Virtual Network
 
 # 📸 Step 1 - Azure Dashboard
 
-![Dashboard](Screenshots/01%20Dashboard.png)
+![Dashboard](screenshots/01%20Dashboard.png)
 
 ---
 
 # 📸 Step 2 - Search for Virtual Network
 
-![Search](Screenshots/02%20Search%20Virtual%20Network.png)
+![Search](screenshots/02%20Search%20Virtual%20Network.png)
 
 ---
 
 # 📸 Step 3 - Select Azure Virtual Network
 
-![Virtual Network](Screenshots/04%20Virtual%20Network%20by%20Microsoft.png)
+![Virtual Network](screenshots/04%20Virtual%20Network%20by%20Microsoft.png)
 
 ---
 
 # 📸 Step 4 - Configure Virtual Network
 
-![Configuration](Screenshots/05%20Select%20Virtual%20Network.png)
+![Configuration](screenshots/05%20Select%20Virtual%20Network.png)
 
 ---
 
 # 📸 Step 5 - Create Virtual Network
 
-![Create](Screenshots/06%20Create%20Virtual%20Network.png)
+![Create](screenshots/06%20Create%20Virtual%20Network.png)
 
 ---
 
 # 📸 Step 6 - Deployment Completed
 
-![Deployment](Screenshots/07%20Deployment%20Complete%20Virtual%20Network.png)
+![Deployment](screenshots/07%20Deployment%20Complete%20Virtual%20Network.png)
 
 ---
 
 # 📸 Step 7 - Configure Subnets
 
-![Subnets](Screenshots/08%20Edit%20Subnets.png)
+![Subnets](screenshots/08%20Edit%20Subnets.png)
 
 ---
 
 # 📸 Step 8 - Create Servers Subnet
 
-![Servers](Screenshots/09%20Server%20Subnet.png)
+![Servers](screenshots/09%20Server%20Subnet.png)
 
 ---
 
 # 📸 Step 9 - Verify Servers Subnet
 
-![Servers Verification](Screenshots/09%20Server%20Subnet%20Vnets.png)
+![Servers Verification](screenshots/09%20Server%20Subnet%20Vnets.png)
 
 ---
 
 # 📸 Step 10 - Create Clients Subnet
 
-![Clients](Screenshots/10%20Clients%20Subnets%20Vnets.png)
+![Clients](screenshots/10%20Clients%20Subnets%20Vnets.png)
 
 ---
 
 # 📸 Step 11 - Verify Address Space
 
-![Address Space](Screenshots/11%20Address%20Space%20Check.png)
+![Address Space](screenshots/11%20Address%20Space%20Check.png)
 
 ---
 
