@@ -354,13 +354,3 @@ System Administrator | Azure Infrastructure Learner
 
 GitHub:
 https://github.com/jaysomwanshi
-```
-
-This version is cleaner for a recruiter:
-
-* Easy first read
-* Shows architecture
-* Shows progress
-* Shows screenshots
-* Does not look like copied documentation
-* Matches your actual labs completed so far.
