@@ -1,275 +1,366 @@
-# Azure Network Security Groups (NSG) Lab
+# ☁️ Azure Hybrid Infrastructure Labs
 
-![Azure](https://img.shields.io/badge/Microsoft-Azure-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)
-![Security](https://img.shields.io/badge/Azure-Network%20Security-success?style=for-the-badge)
-![Status](https://img.shields.io/badge/Status-Completed-brightgreen?style=for-the-badge)
+![Azure](https://img.shields.io/badge/Microsoft%20Azure-Cloud-blue)
+![Status](https://img.shields.io/badge/Labs-In%20Progress-orange)
 
----
+## 📌 Project Overview
 
-# 📖 Overview
+This project contains my hands-on **Azure Hybrid Infrastructure Labs** where I built and configured a basic enterprise cloud environment.
 
-This lab demonstrates how to create and configure Azure Network Security Groups (NSGs) to secure Azure Virtual Machines. The lab covers creating an NSG, configuring inbound security rules, associating the NSG with a subnet, and verifying connectivity using Remote Desktop Protocol (RDP).
+The purpose of this project is to understand the fundamentals of Azure infrastructure, networking, security, and secure remote administration.
 
----
+The labs cover:
 
-# 🎯 Objectives
-
-- Create an Azure Network Security Group
-- Configure inbound security rules
-- Allow Remote Desktop (RDP)
-- Allow HTTP traffic
-- Allow HTTPS traffic
-- Associate NSG with a subnet
-- Verify VM connectivity
-- Understand NSG rule priority
+- Azure Resource Management
+- Virtual Networks
+- Subnet Design
+- Network Security Groups
+- Azure Bastion
+- Secure VM Access
 
 ---
 
-# 🛠 Azure Services Used
+# 🏗️ Azure Infrastructure Flow
 
-- Azure Virtual Network
-- Azure Subnet
-- Azure Network Security Group (NSG)
-- Azure Virtual Machine
-- Azure Network Interface
-- Public IP Address
+```
 
----
+Azure Subscription
 
-# 🌐 Lab Environment
+```
+    |
+    |
+```
 
-| Resource | Configuration |
-|----------|---------------|
-| Resource Group | RG-HybridLab |
-| Virtual Network | vnet-hq-001 |
-| Subnet | Servers (192.168.10.0/26) |
-| Virtual Machine | Server01 |
-| NSG | NSG-Servers |
+Resource Group
 
----
+```
+    |
+    |
+```
 
-# 🗺 Network Topology
+Virtual Network (VNet)
 
-```text
-                    Internet
-                        │
-                 Public IP Address
-                        │
-                  Azure Virtual Machine
-                     Server01
-                        │
-                Network Interface (NIC)
-                        │
-      ----------------------------------------
-      |                                      |
-      |        NSG-Servers (Subnet)          |
-      |                                      |
-      ----------------------------------------
-                        │
-                Servers Subnet
-             192.168.10.0/26
-                        │
-              vnet-hq-001 (VNet)
+```
+    |
+    |
+```
+
+Subnets
+
+```
+    |
+    |
+```
+
+Network Security Groups
+
+```
+    |
+    |
+```
+
+Azure Resources
+(Virtual Machines / Bastion)
+
 ```
 
 ---
 
-# 🔒 Configured Security Rules
+# 📚 Lab Progress
 
-| Priority | Port | Protocol | Action | Purpose |
-|----------:|-----:|---------|--------|---------|
-| 100 | 3389 | TCP | Allow | Remote Desktop |
-| 110 | 80 | TCP | Allow | HTTP |
-| 120 | 443 | TCP | Allow | HTTPS |
-
----
-
-# 📸 Step 1 – Azure Dashboard
-
-![Step 1](screenshots/01-dashboard.png)
-
----
-
-# 📸 Step 2 – Open Network Settings
-
-![Step 2](screenshots/02-network-settings.png)
+| Lab | Topic | Status |
+|-----|-------|--------|
+| Lab 01 | Azure Subscription & Resource Group | ✅ Completed |
+| Lab 02 | Azure Virtual Network (VNet) | ✅ Completed |
+| Lab 03 | Subnet Creation & IP Planning | ✅ Completed |
+| Lab 04 | Network Security Group (NSG) | ✅ Completed |
+| Lab 05 | Azure Bastion Secure Access | ✅ Completed |
+| Lab 06 | Azure Virtual Machine Deployment | ⏳ Pending |
+| Lab 07 | Active Directory Domain Controller | ⏳ Pending |
+| Lab 08 | Azure VPN Gateway Hybrid Connection | ⏳ Pending |
+| Lab 09 | Azure Monitoring & Backup | ⏳ Pending |
 
 ---
 
-# 📸 Step 3 – Search Network Security Groups
+# ✅ Completed Labs
 
-![Step 3](screenshots/03-network-security-groups.png)
+## Lab 01 - Resource Group Creation
 
----
+### Objective
 
-# 📸 Step 4 – Create NSG
+Create a logical container to organize Azure resources.
 
-![Step 4](screenshots/04-create-nsg.png)
+### Implementation
 
----
+Created Resource Group:
 
-# 📸 Step 5 – Validation Passed
+```
 
-![Step 5](screenshots/05-nsg-validation-passed.png)
+RG-HybridLab
 
----
+```
 
-# 📸 Step 6 – Deployment Complete
-
-![Step 6](screenshots/06-deployment-complete.png)
-
----
-
-# 📸 Step 7 – NSG Overview
-
-![Step 7](screenshots/07-nsg-overview.png)
-
----
-
-# 📸 Step 8 – Inbound Security Rules
-
-![Step 8](screenshots/08-inbound-rules.png)
-
----
-
-# 📸 Step 9 – Add RDP Rule
-
-![Step 9](screenshots/09-add-rdp-rule.png)
-
----
-
-# 📸 Step 10 – RDP Rule Created
-
-![Step 10](screenshots/10-rdp-rule-created.png)
-
----
-
-# 📸 Step 11 – Add HTTP Rule
-
-![Step 11](screenshots/11-add-http-rule.png)
-
----
-
-# 📸 Step 12 – HTTP Rule Created
-
-![Step 12](screenshots/12-http-rule-created.png)
-
----
-
-# 📸 Step 13 – Add HTTPS Rule
-
-![Step 13](screenshots/13-add-https-rule.png)
-
----
-
-# 📸 Step 14 – HTTPS Rule Created
-
-![Step 14](screenshots/14-https-rule-created.png)
-
----
-
-# 📸 Step 15 – Verify Inbound Rules
-
-![Step 15](screenshots/15-inbound-rules-overview.png)
-
----
-
-# 📸 Step 16 – Open Subnet Association
-
-![Step 16](screenshots/16-subnet-association.png)
-
----
-
-# 📸 Step 17 – Associate NSG with Servers Subnet
-
-![Step 17](screenshots/17-associate-subnet.png)
-
----
-
-# 📸 Step 18 – Association Complete
-
-![Step 18](screenshots/18-subnet-associated.png)
-
----
-
-# 📸 Step 19 – Verify Server01 Network Interface
-
-![Step 19](screenshots/19-server01-nic.png)
-
----
-
-# 📸 Step 20 – Verify Effective Security Rules
-
-![Step 20](screenshots/20-effective-security-rules.png)
-
----
-
-# 📸 Step 21 – Remote Desktop Connection
-
-![Step 21](screenshots/21-rdp-connected.png)
-
----
-
-# 💡 What I Learned
-
-✅ Azure Network Security Groups (NSGs)
-
-✅ Inbound Security Rules
-
-✅ Security Rule Priorities
-
-✅ RDP Access Configuration
-
-✅ HTTP & HTTPS Access
-
-✅ Subnet-Level Security
-
-✅ Network Interface Verification
-
-✅ Effective Security Rules
-
-✅ Secure Azure Networking
-
----
-
-# 📚 Key Concepts
-
-### What is an NSG?
-
-An Azure Network Security Group (NSG) is a virtual firewall that filters inbound and outbound network traffic for Azure resources.
-
-### Rule Processing
-
-Azure processes NSG rules based on **Priority**. Lower numbers are evaluated before higher numbers.
+Resource Groups help manage related Azure services together.
 
 Example:
 
-- Priority **100** → RDP
-- Priority **110** → HTTP
-- Priority **120** → HTTPS
+```
 
-If no rule matches, Azure applies the default **DenyAllInbound** rule.
+RG-HybridLab
+
+|
+|-- Virtual Network
+|-- Network Security Group
+|-- Virtual Machines
+|-- Bastion
+
+```
+
+### Screenshot
+
+![Resource Group](screenshots/resource-group.png)
 
 ---
 
-# 🚀 Next Lab
+# Lab 02 - Virtual Network Creation
 
-- Azure Bastion
-- Secure RDP without Public Ports
-- Azure Storage Accounts
-- Azure Files
-- Azure Load Balancer
+### Objective
+
+Create a private network environment inside Azure.
+
+### Implementation
+
+Created:
+
+```
+
+VNet Name:
+
+Hybrid-VNet
+
+Address Space:
+
+192.168.10.0/24
+
+```
+
+The Virtual Network provides the private IP address range for Azure resources.
+
+### Screenshot
+
+![Virtual Network](screenshots/vnet.png)
+
+---
+
+# Lab 03 - Subnet Design
+
+### Objective
+
+Divide the Virtual Network into smaller network segments.
+
+Created subnets:
+
+## Servers Subnet
+
+```
+
+192.168.10.0/26
+
+```
+
+Purpose:
+
+- Server workloads
+- Infrastructure services
+
+
+## Clients Subnet
+
+```
+
+192.168.10.64/26
+
+```
+
+Purpose:
+
+- Client machines
+- Testing systems
+
+
+## Azure Bastion Subnet
+
+```
+
+AzureBastionSubnet
+
+192.168.10.128/27
+
+```
+
+Purpose:
+
+- Secure VM administration
+
+
+### Screenshot
+
+![Subnets](screenshots/subnets.png)
+
+---
+
+# Lab 04 - Network Security Group (NSG)
+
+### Objective
+
+Control inbound and outbound network traffic.
+
+Configured security rules:
+
+Example:
+
+```
+
+Inbound:
+
+Allow RDP
+TCP 3389
+
+Allow HTTPS
+TCP 443
+
+```
+
+NSG works as a cloud firewall by controlling:
+
+- Source
+- Destination
+- Port
+- Protocol
+- Allow/Deny Rules
+
+
+### Screenshot
+
+![NSG](screenshots/nsg.png)
+
+---
+
+# Lab 05 - Azure Bastion
+
+### Objective
+
+Provide secure access to Azure Virtual Machines without exposing them directly to the internet.
+
+### Connection Flow
+
+```
+
+Administrator Laptop
+
+```
+    |
+    |
+ HTTPS 443
+
+    |
+    |
+```
+
+Azure Bastion
+
+```
+    |
+    |
+```
+
+Private VM
+
+192.168.10.x
+
+```
+
+Benefits:
+
+✅ No direct public RDP exposure  
+✅ Secure browser-based access  
+✅ Private VM connectivity  
+✅ Reduced attack surface  
+
+
+### Screenshot
+
+![Azure Bastion](screenshots/bastion.png)
+
+---
+
+# 📂 Repository Structure
+
+```
+
+Azure-Hybrid-Infrastructure-Labs
+
+│
+├── Lab-01-Resource-Group
+│
+├── Lab-02-Virtual-Network
+│
+├── Lab-03-Subnet-Configuration
+│
+├── Lab-04-Network-Security-Group
+│
+├── Lab-05-Azure-Bastion
+│
+├── screenshots
+│
+└── README.md
+
+```
+
+---
+
+# 🛠️ Skills Demonstrated
+
+- Azure Subscription Management
+- Resource Group Management
+- Virtual Network Design
+- IPv4 Address Planning
+- Subnetting
+- Network Security Groups
+- Firewall Rules
+- Azure Bastion Deployment
+- Cloud Infrastructure Fundamentals
+
+---
+
+# 🚀 Upcoming Labs
+
+Future implementation:
+
+⏳ Azure Virtual Machine Deployment  
+⏳ Windows Server Configuration  
+⏳ Active Directory Domain Services  
+⏳ Azure DNS  
+⏳ VPN Gateway Hybrid Connectivity  
+⏳ Azure Monitoring and Backup  
 
 ---
 
 # 👨‍💻 Author
 
-**Pavan Baburao Somwanshi**
+**Jay Somwanshi**
 
-System Administrator | Azure | Windows Server | Networking | Cloud
+System Administrator | Azure Infrastructure Learner
 
-GitHub: https://github.com/jaysomwanshi
+GitHub:
+https://github.com/jaysomwanshi
+```
 
----
+This version is cleaner for a recruiter:
 
-⭐ If you found this project useful, consider giving it a Star!
+* Easy first read
+* Shows architecture
+* Shows progress
+* Shows screenshots
+* Does not look like copied documentation
+* Matches your actual labs completed so far.
