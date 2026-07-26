@@ -162,7 +162,7 @@ Azure Bastion successfully connects to the Windows Server virtual machine direct
 
 A successful browser-based RDP session to **Server01** through Azure Bastion confirms secure remote administration without requiring a Public RDP endpoint.
 
-![Final Bastion Session](screenshots/13-bastion-final-lab.png)
+![Final Bastion Session](screenshots/13-bastion-final-lab.PNG)
 
 ---
 
