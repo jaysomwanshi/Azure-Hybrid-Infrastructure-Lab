@@ -1,254 +1,234 @@
-# 🚀 Lab 06 - Deploy Windows Server Virtual Machine in Azure
+# Lab 06 – Deploy Windows Server Virtual Machine in Azure
 
-![Microsoft Azure](https://img.shields.io/badge/Microsoft-Azure-blue)
-
-## 📌 Objective
-
-Deploy a Windows Server Virtual Machine inside an Azure Virtual Network and securely access it using Azure Bastion.
-
-This lab demonstrates how Azure administrators deploy servers in a secure cloud environment without exposing virtual machines directly to the internet.
+![Azure](https://img.shields.io/badge/Microsoft-Azure-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)
+![Windows Server](https://img.shields.io/badge/Windows-Server-blue?style=for-the-badge&logo=windows)
+![Status](https://img.shields.io/badge/Status-Completed-brightgreen?style=for-the-badge)
 
 ---
 
-# 🏗️ Lab Architecture
+# 📖 Overview
 
+This lab demonstrates how to deploy a **Windows Server Virtual Machine** inside Microsoft Azure using an existing Virtual Network and secure it using Azure networking components.
 
-Azure Subscription
-
-    |
-    |
-
-Resource Group
-
-RG-HybridLab
-
-    |
-    |
-
-Virtual Network
-
-vnet-hq-001
-192.168.10.0/24
-
-    |
-    |
-
-Servers Subnet
-
-192.168.10.0/26
-
-    |
-    |
-
-Network Security Group
-
-NSG-Servers
-
-    |
-    |
-
-Windows Server VM
-
-Server02
-
-Private IP:
-192.168.10.5
-
-    |
-    |
-
-Azure Bastion Secure Access
-
+The VM was deployed inside the **Servers subnet** with a private IP address and without a Public IP. Secure administration was performed using **Azure Bastion**, allowing browser-based Remote Desktop access without exposing RDP directly to the Internet.
 
 ---
 
-# 🛠️ Implementation Steps
+# 🎯 Objectives
 
-## 1. Created Azure Virtual Machine
+- Deploy Windows Server Virtual Machine
+- Configure VM networking
+- Connect VM to existing Virtual Network
+- Assign VM to Servers subnet
+- Configure private IP addressing
+- Apply Network Security Group rules
+- Deploy VM without Public IP exposure
+- Access VM securely using Azure Bastion
 
-Created a Windows Server virtual machine with the following configuration:
+---
 
-| Setting | Value |
-|---|---|
+# 🛠 Azure Services Used
+
+- Azure Virtual Machine
+- Windows Server 2022 Datacenter
+- Azure Virtual Network
+- Azure Subnet
+- Network Security Group (NSG)
+- Network Interface Card (NIC)
+- Azure Bastion
+
+---
+
+# 🌐 Lab Configuration
+
+| Resource | Value |
+|-----------|-------|
+| Resource Group | RG-HybridLab |
 | Virtual Machine Name | Server02 |
 | Operating System | Windows Server 2022 Datacenter |
+| Region | Central India |
 | Virtual Network | vnet-hq-001 |
+| Address Space | 192.168.10.0/24 |
 | Subnet | Servers |
-| Private IP | 192.168.10.5 |
-| Public IP | None |
-| Security | NSG-Servers |
+| Subnet Range | 192.168.10.0/26 |
+| Private IP Address | 192.168.10.5 |
+| Public IP Address | None |
+| Network Security Group | NSG-Servers |
+| Access Method | Azure Bastion Browser RDP |
 
 ---
 
-# 2. Network Configuration
+# 🏗 Architecture
 
-The VM was deployed inside the existing Azure network.
-
-## Virtual Network
-
-
-vnet-hq-001
-
-192.168.10.0/24
-
-
-## Subnet
-
-
-Servers
-
-192.168.10.0/26
-
-
-Azure automatically assigned a private IP address:
-
-
-Server02
-
-192.168.10.5
-
-
----
-
-# 3. Network Security Group Configuration
-
-The existing subnet-level NSG was used:
-
-
-NSG-Servers
-
-
-Configured rules:
-
-| Priority | Rule | Port | Action |
-|---|---|---|---|
-| 100 | Allow-RDP | TCP 3389 | Allow |
-| 110 | Allow-http | TCP 80 | Allow |
-| 120 | Allow-https | TCP 443 | Allow |
-| 65000 | AllowVnetInBound | Any | Allow |
-| 65500 | DenyAllInbound | Any | Deny |
-
-The NSG works as a cloud firewall to control network traffic.
+```text
+                 Azure Subscription
+                         │
+                         │
+                  RG-HybridLab
+                         │
+                         │
+                  vnet-hq-001
+                192.168.10.0/24
+                         │
+                         │
+              Servers Subnet (/26)
+               192.168.10.0/26
+                         │
+                         │
+                  NSG-Servers
+                         │
+                         │
+                  Server02 VM
+                Private IP:
+                192.168.10.5
+                         │
+                         │
+                Azure Bastion
+                         │
+                         │
+              Browser-based RDP Access
+```
 
 ---
 
-# 4. Secure VM Access Using Azure Bastion
-
-The VM was deployed without a public IP address.
-
-Connection flow:
-
-
-Administrator Laptop
-
-    |
-    |
-
-Azure Portal
-
-    |
-    |
-
-Azure Bastion
-
-    |
-    |
-
-Server02
-
-Private IP:
-192.168.10.5
-
-
-Benefits:
-
-✅ No direct public RDP exposure  
-✅ Secure browser-based administration  
-✅ Private VM connectivity  
-✅ Reduced attack surface  
-
----
-
-# 📸 Screenshots
-
-## Azure Dashboard
+# 📸 Step 1 – Azure Portal Dashboard
 
 ![Dashboard](screenshots/01-dashboard.png)
 
 ---
 
-## Virtual Machine Creation
+# 📸 Step 2 – Open Virtual Machine Creation
 
-![VM Overview](screenshots/02-create-virtual-machine-overview.png)
-
-![Create VM](screenshots/03-create-virtual-machine-click.png)
+![Create Virtual Machine Overview](screenshots/02-create-virtual-machine-overview.png)
 
 ---
 
-## VM Basic Configuration
+# 📸 Step 3 – Start Virtual Machine Deployment
 
-![VM Basic Configuration](screenshots/04-create-virtual-machine-basic-name-region-server02.png)
-
----
-
-## VM Networking Configuration
-
-![VM Networking](screenshots/05-create-virtual-machine-networking-subnet-vnet-no-public-ip.png)
+![Create Virtual Machine](screenshots/03-create-virtual-machine-click.png)
 
 ---
 
-## Validation and Deployment
+# 📸 Step 4 – Configure Basic Settings
+
+Configured:
+
+- Resource Group
+- Virtual Machine Name
+- Region
+- Windows Server Image
+- Administrator Account
+
+![Basic Configuration](screenshots/04-create-virtual-machine-basic-name-region-server02.png)
+
+---
+
+# 📸 Step 5 – Configure Networking
+
+Configured:
+
+- Existing Virtual Network
+- Servers Subnet
+- No Public IP Address
+- Existing Network Security Group
+
+![Networking Configuration](screenshots/05-create-virtual-machine-networking-subnet-vnet-no-public-ip.png)
+
+---
+
+# 📸 Step 6 – Deployment Validation
+
+Azure successfully validated the VM configuration before deployment.
 
 ![Validation Passed](screenshots/06-validation-passed.png)
 
-![Deployment In Progress](screenshots/07-deployment-in-progress.png)
+---
+
+# 📸 Step 7 – Deployment in Progress
+
+![Deployment Progress](screenshots/07-deployment-in-progress.png)
+
+---
+
+# 📸 Step 8 – Deployment Completed Successfully
 
 ![Deployment Complete](screenshots/08-deployment-complete.png)
 
 ---
 
-## Azure Bastion Connection
+# 📸 Step 9 – Open Azure Bastion Connection
+
+The VM was accessed securely using Azure Bastion instead of direct Public RDP.
 
 ![Bastion Connect](screenshots/09-bastion-connect-button.png)
 
-![Windows Server Access](screenshots/10-bastion-browser-connect-server-manager.png)
+---
+
+# 📸 Step 10 – Successful Browser-based RDP Session
+
+Azure Bastion successfully connected to the Windows Server VM through the Azure Portal.
+
+![Server Manager Session](screenshots/10-bastion-browser-connect-server-manager.png)
 
 ---
 
-# 🎯 Skills Demonstrated
+# 🔒 Security Benefits
 
-Through this lab, I practiced:
+- No Public IP assigned to Windows Server
+- No direct Internet exposure
+- Secure browser-based Remote Desktop
+- Controlled access through Azure Bastion
+- Network Security Group protection
+- Reduced attack surface
+- Private Azure networking
+
+---
+
+# 📚 Skills Demonstrated
 
 - Azure Virtual Machine Deployment
 - Windows Server Deployment
-- Virtual Network Integration
+- Azure Virtual Networking
 - Subnet Assignment
-- Private IP Addressing
+- Private IP Address Management
 - Network Security Group Configuration
-- Azure Bastion Secure Access
-- Cloud Infrastructure Administration
+- Azure Bastion Administration
+- Secure Cloud Infrastructure Design
 
 ---
 
-# 🔜 Next Lab
+# ✅ Lab Outcome
 
-## Lab 07 - Active Directory Domain Controller Deployment
+Successfully deployed a Windows Server Virtual Machine inside Azure using an existing Virtual Network and Servers subnet.
 
-Planned activities:
+The VM was configured with a private IP address and securely accessed through Azure Bastion without exposing RDP directly to the Internet.
+
+---
+
+# 🚀 Next Lab
+
+**Lab 07 – Active Directory Domain Services (AD DS)**
+
+Topics include:
 
 - Install Active Directory Domain Services
-- Configure DNS Server
-- Create Domain Controller
-- Create Users and Organizational Units
+- Configure Domain Controller
+- Configure DNS
+- Create Users and Groups
+- Create Organizational Units (OU)
+- Configure Group Policy Objects (GPO)
 - Join Client Machines to Domain
 
 ---
 
 # 👨‍💻 Author
 
-**Jay Somwanshi**
+**Pavan Baburao Somwanshi**
 
-System Administrator | Azure Infrastructure Learner
+**System Administrator | Azure | Windows Server | Microsoft 365 | Networking | Cloud Computing**
 
-GitHub:
-https://github.com/jaysomwanswanshi
+GitHub: https://github.com/jaysomwanshi
+
+---
+
+⭐ If you found this project helpful, consider giving the repository a **Star**.
