@@ -1,356 +1,190 @@
-# ☁️ Azure Hybrid Infrastructure Labs
+For the **root** of your **Azure-Hybrid-Infrastructure-Lab** repository, don't make it like an individual lab. Instead, make it a **portfolio landing page** that showcases all labs. Recruiters will land here first.
 
-![Azure](https://img.shields.io/badge/Microsoft%20Azure-Cloud-blue)
-![Status](https://img.shields.io/badge/Labs-In%20Progress-orange)
+Use this as your root `README.md`:
 
-## 📌 Project Overview
+````markdown
+<div align="center">
 
-This project contains my hands-on **Azure Hybrid Infrastructure Labs** where I built and configured a basic enterprise cloud environment.
+# ☁️ Azure Hybrid Infrastructure Lab
 
-The purpose of this project is to understand the fundamentals of Azure infrastructure, networking, security, and secure remote administration.
+Building a real-world Microsoft Azure Hybrid Infrastructure from scratch using Azure Virtual Machines, Windows Server, Active Directory Domain Services, Azure Networking, DNS, Group Policy, Azure Bastion, and Hybrid Identity.
 
-The labs cover:
+![Azure](https://img.shields.io/badge/Microsoft-Azure-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)
+![Windows Server](https://img.shields.io/badge/Windows%20Server-2022-0078D6?style=for-the-badge&logo=windows&logoColor=white)
+![Active Directory](https://img.shields.io/badge/Active%20Directory-AD%20DS-success?style=for-the-badge)
+![PowerShell](https://img.shields.io/badge/PowerShell-5391FE?style=for-the-badge&logo=powershell&logoColor=white)
+![Status](https://img.shields.io/badge/Project-In%20Progress-brightgreen?style=for-the-badge)
 
-- Azure Resource Management
-- Virtual Networks
-- Subnet Design
-- Network Security Groups
+</div>
+
+---
+
+# 📖 Project Overview
+
+This repository contains a collection of hands-on Microsoft Azure Hybrid Infrastructure labs designed to simulate enterprise IT environments.
+
+The labs cover the deployment and administration of Azure Virtual Machines, Active Directory Domain Services (AD DS), Azure Virtual Networking, Azure Bastion, DNS, Windows Server administration, Group Policy, and hybrid infrastructure concepts commonly used by System Administrators and Cloud Engineers.
+
+Each lab includes detailed documentation, screenshots, implementation steps, verification procedures, and key learning outcomes.
+
+---
+
+# 🎯 Project Goals
+
+- Deploy Azure Infrastructure
+- Configure Virtual Networking
+- Deploy Windows Server
+- Install Active Directory Domain Services
+- Configure DNS
+- Join Windows Client Computers to Active Directory
+- Implement Azure Bastion
+- Configure Group Policy
+- Manage Users and Organizational Units
+- Build Enterprise Hybrid Infrastructure
+
+---
+
+# 🛠 Technologies Used
+
+- Microsoft Azure
+- Azure Virtual Machines
+- Azure Virtual Network (VNet)
 - Azure Bastion
-- Secure VM Access
+- Windows Server 2022
+- Active Directory Domain Services
+- DNS
+- PowerShell
+- Windows Administration
+- Networking
+- Microsoft Entra ID (Future Labs)
 
 ---
 
-# 🏗️ Azure Infrastructure Flow
+# 🏗 Lab Architecture
 
-```
+```text
+                     Microsoft Azure
 
-Azure Subscription
-
-```
-    |
-    |
-```
-
-Resource Group
-
-```
-    |
-    |
-```
-
-Virtual Network (VNet)
-
-```
-    |
-    |
-```
-
-Subnets
-
-```
-    |
-    |
-```
-
-Network Security Groups
-
-```
-    |
-    |
-```
-
-Azure Resources
-(Virtual Machines / Bastion)
-
+                    Azure Resource Group
+                           │
+        ┌──────────────────┴──────────────────┐
+        │                                     │
+        │                                     │
+ Azure Virtual Network                 Azure Bastion
+      192.168.10.0/24                       │
+        │                                   │
+        │                                   │
+┌──────────────┐                   Secure Browser RDP
+│   SERVER01   │                          │
+│Domain Control│                          │
+│ Active Dir   │                          │
+│ DNS Server   │                          │
+└──────┬───────┘                          │
+       │                                  │
+       │                                  │
+┌──────▼───────┐                          │
+│   CLIENT01   │──────────────────────────┘
+│ Domain Joined│
+│ Windows VM   │
+└──────────────┘
 ```
 
 ---
 
-# 📚 Lab Progress
-
-| Lab | Topic | Status |
-|-----|-------|--------|
-| Lab 01 | Azure Subscription & Resource Group | ✅ Completed |
-| Lab 02 | Azure Virtual Network (VNet) | ✅ Completed |
-| Lab 03 | Subnet Creation & IP Planning | ✅ Completed |
-| Lab 04 | Network Security Group (NSG) | ✅ Completed |
-| Lab 05 | Azure Bastion Secure Access | ✅ Completed |
-| Lab 06 | Azure Virtual Machine Deployment | ⏳ Pending |
-| Lab 07 | Active Directory Domain Controller | ⏳ Pending |
-| Lab 08 | Azure VPN Gateway Hybrid Connection | ⏳ Pending |
-| Lab 09 | Azure Monitoring & Backup | ⏳ Pending |
-
----
-
-# ✅ Completed Labs
-
-## Lab 01 - Resource Group Creation
-
-### Objective
-
-Create a logical container to organize Azure resources.
-
-### Implementation
-
-Created Resource Group:
-
-```
-
-RG-HybridLab
-
-```
-
-Resource Groups help manage related Azure services together.
-
-Example:
-
-```
-
-RG-HybridLab
-
-|
-|-- Virtual Network
-|-- Network Security Group
-|-- Virtual Machines
-|-- Bastion
-
-```
-
-### Screenshot
-
-![Resource Group](screenshots/resource-group.png)
-
----
-
-# Lab 02 - Virtual Network Creation
-
-### Objective
-
-Create a private network environment inside Azure.
-
-### Implementation
-
-Created:
-
-```
-
-VNet Name:
-
-Hybrid-VNet
-
-Address Space:
-
-192.168.10.0/24
-
-```
-
-The Virtual Network provides the private IP address range for Azure resources.
-
-### Screenshot
-
-![Virtual Network](screenshots/vnet.png)
-
----
-
-# Lab 03 - Subnet Design
-
-### Objective
-
-Divide the Virtual Network into smaller network segments.
-
-Created subnets:
-
-## Servers Subnet
-
-```
-
-192.168.10.0/26
-
-```
-
-Purpose:
-
-- Server workloads
-- Infrastructure services
-
-
-## Clients Subnet
-
-```
-
-192.168.10.64/26
-
-```
-
-Purpose:
-
-- Client machines
-- Testing systems
-
-
-## Azure Bastion Subnet
-
-```
-
-AzureBastionSubnet
-
-192.168.10.128/27
-
-```
-
-Purpose:
-
-- Secure VM administration
-
-
-### Screenshot
-
-![Subnets](screenshots/subnets.png)
-
----
-
-# Lab 04 - Network Security Group (NSG)
-
-### Objective
-
-Control inbound and outbound network traffic.
-
-Configured security rules:
-
-Example:
-
-```
-
-Inbound:
-
-Allow RDP
-TCP 3389
-
-Allow HTTPS
-TCP 443
-
-```
-
-NSG works as a cloud firewall by controlling:
-
-- Source
-- Destination
-- Port
-- Protocol
-- Allow/Deny Rules
-
-
-### Screenshot
-
-![NSG](screenshots/nsg.png)
-
----
-
-# Lab 05 - Azure Bastion
-
-### Objective
-
-Provide secure access to Azure Virtual Machines without exposing them directly to the internet.
-
-### Connection Flow
-
-```
-
-Administrator Laptop
-
-```
-    |
-    |
- HTTPS 443
-
-    |
-    |
-```
-
-Azure Bastion
-
-```
-    |
-    |
-```
-
-Private VM
-
-192.168.10.x
-
-```
-
-Benefits:
-
-✅ No direct public RDP exposure  
-✅ Secure browser-based access  
-✅ Private VM connectivity  
-✅ Reduced attack surface  
-
-
-### Screenshot
-
-![Azure Bastion](screenshots/bastion.png)
+# 📚 Labs Completed
+
+| Lab | Description | Status |
+|------|-------------|--------|
+| ✅ Lab 01 | Azure Resource Group | Completed |
+| ✅ Lab 02 | Azure Virtual Network (VNet) | Completed |
+| ✅ Lab 03 | Azure Virtual Machine Deployment | Completed |
+| ✅ Lab 04 | Install Active Directory Domain Services | Completed |
+| ✅ Lab 05 | Configure Azure Bastion | Completed |
+| ✅ Lab 06 | Promote Windows Server to Domain Controller | Completed |
+| ✅ Lab 07 | Configure DNS | Completed |
+| ✅ Lab 08 | Join Windows Client to Active Directory Domain | Completed |
 
 ---
 
 # 📂 Repository Structure
 
-```
-
-Azure-Hybrid-Infrastructure-Labs
-
+```text
+Azure-Hybrid-Infrastructure-Lab
 │
-├── Lab-01-Resource-Group
-│
-├── Lab-02-Virtual-Network
-│
-├── Lab-03-Subnet-Configuration
-│
-├── Lab-04-Network-Security-Group
-│
-├── Lab-05-Azure-Bastion
-│
-├── screenshots
-│
+├── Lab 01 – Azure Resource Group
+├── Lab 02 – Azure Virtual Network and Subnets
+├── Lab 03 – Azure Virtual Machine Deployment
+├── Lab 04 – Install Active Directory Domain Services
+├── Lab 05 – Azure Bastion
+├── Lab 06 – Promote Server to Domain Controller
+├── Lab 07 – Configure DNS
+├── Lab 08 – Join Windows Client to Active Directory Domain
 └── README.md
-
 ```
 
 ---
 
-# 🛠️ Skills Demonstrated
+# 💼 Skills Demonstrated
 
-- Azure Subscription Management
-- Resource Group Management
-- Virtual Network Design
-- IPv4 Address Planning
-- Subnetting
-- Network Security Groups
-- Firewall Rules
-- Azure Bastion Deployment
-- Cloud Infrastructure Fundamentals
+- Azure Infrastructure Deployment
+- Windows Server Administration
+- Active Directory Domain Services
+- Azure Networking
+- DNS Configuration
+- Azure Bastion
+- Windows Client Administration
+- Active Directory Domain Join
+- PowerShell
+- Enterprise Troubleshooting
+- Hybrid Infrastructure Administration
 
 ---
 
 # 🚀 Upcoming Labs
 
-Future implementation:
+- Active Directory Users and Computers (ADUC)
+- Organizational Units (OU)
+- User and Group Management
+- Group Policy Objects (GPO)
+- File Server
+- Shared Folder Permissions
+- NTFS Permissions
+- DHCP Server
+- Windows Server Backup
+- Azure VPN Gateway
+- Hybrid Identity with Microsoft Entra ID
+- Azure File Sync
+- Windows Admin Center
 
-⏳ Azure Virtual Machine Deployment  
-⏳ Windows Server Configuration  
-⏳ Active Directory Domain Services  
-⏳ Azure DNS  
-⏳ VPN Gateway Hybrid Connectivity  
-⏳ Azure Monitoring and Backup  
+---
+
+# 📜 Certifications Supported by These Labs
+
+- Microsoft Certified: Azure Administrator Associate (AZ-104)
+- Microsoft Certified: Azure Fundamentals (AZ-900)
+- Windows Server Administration
+- Active Directory Administration
+- Microsoft Identity and Access Administrator (SC-300)
 
 ---
 
 # 👨‍💻 Author
 
-**Jay Somwanshi**
+**Pavan Baburao Somwanshi**
 
-System Administrator | Azure Infrastructure Learner
+**System Administrator | Azure | Windows Server | Active Directory | Microsoft 365 | Networking | Cloud Infrastructure**
 
-GitHub:
-https://github.com/jaysomwanshi
+📍 Pune, Maharashtra, India
+
+GitHub: https://github.com/jaysomwanshi
+
+---
+
+<div align="center">
+
+⭐ If you found this repository useful, consider giving it a **Star**.
+
+</div>
+````
+
+This style is much more appropriate for the repository root because it acts as a portfolio homepage, while each lab has its own detailed `README.md`. It gives recruiters a clear overview of your Azure learning path and makes the repository easy to navigate.
