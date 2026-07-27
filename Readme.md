@@ -1,8 +1,3 @@
-For your **root repository** `Azure-Hybrid-Infrastructure-Lab`, the main `README.md` should act as a portfolio landing page that explains the complete Azure hybrid infrastructure journey and links to individual labs.
-
-Use this:
-
-````markdown
 # 🚀 Azure Hybrid Infrastructure Lab
 
 ![Azure](https://img.shields.io/badge/Microsoft-Azure-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)
