@@ -1,180 +1,151 @@
-Yes. The important thing is **how you reference the screenshots**. Since your structure is:
+# Join Windows Client Virtual Machine to Active Directory Domain
 
-```text
-Lab 08 – Join Windows Client Virtual Machine to Active Directory Domain
-│
-├── README.md
-└── screenshots
-    ├── 01-azure-portal-dashboard.png
-    ├── ...
-```
-
-your README must use:
-
-```markdown
-![Description](screenshots/filename.png)
-```
-
-**Do not put screenshots inside Markdown tables** because GitHub often renders them poorly.
-
-Below is a professional template that displays screenshots correctly.
-
-````markdown
-<div align="center">
-
-# 🚀 Lab 08 – Join Windows Client Virtual Machine to Active Directory Domain
-
-Deploy a Windows client virtual machine in Microsoft Azure and join it to an existing **Active Directory Domain Services (AD DS)** domain using Azure Bastion.
-
-![Azure](https://img.shields.io/badge/Microsoft%20Azure-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)
-![Windows Server](https://img.shields.io/badge/Windows%20Server-2022-0078D6?style=for-the-badge&logo=windows&logoColor=white)
-![Active Directory](https://img.shields.io/badge/Active%20Directory-Domain%20Services-003366?style=for-the-badge)
-![PowerShell](https://img.shields.io/badge/PowerShell-5391FE?style=for-the-badge&logo=powershell&logoColor=white)
-
-</div>
+![Azure](https://img.shields.io/badge/Microsoft-Azure-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)
+![Windows](https://img.shields.io/badge/Windows-Client-0078D6?style=for-the-badge&logo=windows&logoColor=white)
+![Active%20Directory](https://img.shields.io/badge/Active%20Directory-Domain%20Join-success?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Completed-brightgreen?style=for-the-badge)
 
 ---
 
 # 📖 Overview
 
-This lab demonstrates how to deploy a Windows client virtual machine in Microsoft Azure and successfully join it to an existing Active Directory domain (**corp.local**) hosted on **SERVER01**.
+This lab demonstrates how to deploy a Windows client virtual machine in Microsoft Azure and successfully join it to an existing **Active Directory Domain Services (AD DS)** environment.
 
-The client machine is securely accessed through **Azure Bastion**, configured to use the Domain Controller's DNS server, authenticated using domain credentials, and verified after restart.
+The client virtual machine communicates with the Domain Controller using Azure Virtual Network and DNS, authenticates with domain credentials, and becomes a member of the **corp.local** Active Directory domain.
+
+This is one of the most common tasks performed by Windows System Administrators in enterprise environments.
 
 ---
 
 # 🎯 Objectives
 
-- Deploy Windows client VM
+- Deploy a Windows Client Virtual Machine
 - Connect using Azure Bastion
-- Configure computer name
-- Join Active Directory domain
-- Authenticate with Domain Administrator
-- Verify successful domain membership
+- Configure Computer Name
+- Join Active Directory Domain
+- Authenticate using Domain Administrator Credentials
+- Verify Successful Domain Membership
 
 ---
 
-# 🏗️ Architecture
+# 🛠 Azure Services Used
+
+- Azure Resource Group
+- Azure Virtual Machine
+- Azure Virtual Network (VNet)
+- Azure Bastion
+- Active Directory Domain Services
+- Azure DNS (Private)
+
+---
+
+# 🌐 Lab Environment
+
+| Component | Configuration |
+|-----------|---------------|
+| Domain | corp.local |
+| Domain Controller | SERVER01 |
+| Client Computer | CLIENT01 |
+| Operating System | Windows Client |
+| Authentication | Domain Administrator |
+| Remote Access | Azure Bastion |
+
+---
+
+# 🗺 Architecture
 
 ```text
-                    Microsoft Azure
+                   Azure Virtual Network
+                      192.168.10.0/24
+                              │
+          ┌───────────────────┴───────────────────┐
+          │                                       │
+          │                                       │
+ ┌──────────────────────┐              ┌──────────────────────┐
+ │      SERVER01        │              │      CLIENT01        │
+ │ Domain Controller    │◄────────────►│ Windows Client VM    │
+ │ Active Directory     │              │ Joined to Domain     │
+ │ DNS Server           │              │ Azure Bastion Access │
+ └──────────────────────┘              └──────────────────────┘
 
-             +-------------------------+
-             |      Azure VNet         |
-             |   192.168.10.0/24       |
-             +-----------+-------------+
-                         |
-        -----------------------------------------
-        |                                       |
-+---------------------+               +----------------------+
-|      SERVER01       |               |      CLIENT01        |
-| Domain Controller   |<------------->| Windows Client VM    |
-| Active Directory    |               | Joined to corp.local |
-| DNS Server          |               | Azure Bastion        |
-+---------------------+               +----------------------+
+                    Domain: corp.local
 ```
 
 ---
 
-# 📂 Repository Structure
+# 📸 Step 1 - Azure Portal Dashboard
 
-```text
-Lab 08 – Join Windows Client Virtual Machine to Active Directory Domain
-│
-├── README.md
-└── screenshots
-    ├── 01-azure-portal-dashboard.png
-    ├── 02-server01-overview.png
-    ├── 03-create-client01-vm.png
-    ├── 04-client01-vm-configuration.png
-    ├── 05-validation-passed.png
-    ├── 06-deployment-progress.png
-    ├── 07-client01-overview.png
-    ├── 08-client01-bastion-connection.png
-    ├── 09-domain-join-settings.png
-    ├── 10-computer-name-change.png
-    ├── 11-domain-credentials.png
-    ├── 12-domain-join-success.png
-    └── 13-restart-required.png
-```
+![Azure Dashboard](screenshots/01-azure-portal-dashboard.png)
 
 ---
 
-# 📸 Screenshots
-
-## 1️⃣ Azure Portal Dashboard
-
-![Azure Portal Dashboard](screenshots/01-azure-portal-dashboard.png)
-
----
-
-## 2️⃣ SERVER01 Overview
+# 📸 Step 2 - SERVER01 Overview
 
 ![SERVER01 Overview](screenshots/02-server01-overview.png)
 
 ---
 
-## 3️⃣ Create CLIENT01 Virtual Machine
+# 📸 Step 3 - Create Client Virtual Machine
 
-![Create CLIENT01 VM](screenshots/03-create-client01-vm.png)
+![Create VM](screenshots/03-create-client01-vm.png)
 
 ---
 
-## 4️⃣ Virtual Machine Configuration
+# 📸 Step 4 - Configure Virtual Machine
 
 ![VM Configuration](screenshots/04-client01-vm-configuration.png)
 
 ---
 
-## 5️⃣ Validation Passed
+# 📸 Step 5 - Validation Passed
 
-![Validation Passed](screenshots/05-validation-passed.png)
+![Validation](screenshots/05-validation-passed.png)
 
 ---
 
-## 6️⃣ Deployment Progress
+# 📸 Step 6 - Deployment Progress
 
 ![Deployment Progress](screenshots/06-deployment-progress.png)
 
 ---
 
-## 7️⃣ CLIENT01 Overview
+# 📸 Step 7 - CLIENT01 Virtual Machine Overview
 
-![CLIENT01 Overview](screenshots/07-client01-overview.png)
+![Client Overview](screenshots/07-client01-overview.png)
 
 ---
 
-## 8️⃣ Azure Bastion Connection
+# 📸 Step 8 - Connect Using Azure Bastion
 
 ![Azure Bastion](screenshots/08-client01-bastion-connection.png)
 
 ---
 
-## 9️⃣ Domain Join Settings
+# 📸 Step 9 - Open Domain Join Settings
 
-![Domain Join](screenshots/09-domain-join-settings.png)
+![Domain Join Settings](screenshots/09-domain-join-settings.png)
 
 ---
 
-## 🔟 Computer Name Configuration
+# 📸 Step 10 - Configure Computer Name
 
 ![Computer Name](screenshots/10-computer-name-change.png)
 
 ---
 
-## 1️⃣1️⃣ Domain Credentials
+# 📸 Step 11 - Enter Domain Administrator Credentials
 
-![Domain Credentials](screenshots/11-domain-credentials.png)
-
----
-
-## 1️⃣2️⃣ Domain Join Successful
-
-![Domain Join Successful](screenshots/12-domain-join-success.png)
+![Credentials](screenshots/11-domain-credentials.png)
 
 ---
 
-## 1️⃣3️⃣ Restart Required
+# 📸 Step 12 - Domain Join Successful
+
+![Success](screenshots/12-domain-join-success.png)
+
+---
+
+# 📸 Step 13 - Restart Client
 
 ![Restart Required](screenshots/13-restart-required.png)
 
@@ -182,53 +153,71 @@ Lab 08 – Join Windows Client Virtual Machine to Active Directory Domain
 
 # ✅ Verification
 
-Run the following commands after restarting the client:
+After restarting the virtual machine, verify the domain join.
 
-```powershell
+Open **Command Prompt** and run:
+
+```cmd
 hostname
+```
 
+```cmd
 whoami
+```
 
+```cmd
 systeminfo | findstr /B /C:"Domain"
+```
 
+```cmd
 nltest /sc_verify:corp.local
 ```
 
----
+Expected Result:
 
-# 🛠 Skills Demonstrated
-
-- Microsoft Azure
-- Azure Virtual Machines
-- Azure Bastion
-- Active Directory Domain Services
-- Windows Server Administration
-- Domain Join
-- DNS Configuration
-- Windows Networking
-- PowerShell
-- Enterprise Identity Management
+- Computer is joined to **corp.local**
+- Secure channel verification succeeds
+- Domain authentication is operational
 
 ---
 
-# 🎓 Learning Outcomes
+# 💡 What I Learned
 
-After completing this lab, you can:
+✅ Deploy Azure Virtual Machines
 
-- Deploy Azure virtual machines
-- Join Windows systems to Active Directory
-- Configure DNS for domain communication
-- Authenticate using domain credentials
-- Verify domain membership
-- Troubleshoot common domain join issues
+✅ Configure Azure Bastion
+
+✅ Join Windows Client to Active Directory
+
+✅ Configure Domain Authentication
+
+✅ Windows Computer Name Configuration
+
+✅ Active Directory Domain Membership
+
+✅ Enterprise Identity Management
 
 ---
 
-<div align="center">
+# 🚀 Next Lab
 
-### ⭐ If you found this lab useful, consider giving the repository a star!
+- Active Directory Users and Computers (ADUC)
+- Organizational Units (OU)
+- User & Group Management
+- Group Policy Objects (GPO)
+- DNS Management
+- Shared Folder Permissions
 
-</div>
-````
+---
 
-This format renders correctly on GitHub, displays all screenshots at full width (instead of tiny table thumbnails), and presents a clean, professional portfolio.
+# 👨‍💻 Author
+
+**Pavan Baburao Somwanshi**
+
+System Administrator | Azure | Windows Server | Active Directory | Microsoft 365 | Networking | Cloud Infrastructure
+
+GitHub: https://github.com/jaysomwanshi
+
+---
+
+⭐ If you found this project useful, consider giving it a **Star**!
