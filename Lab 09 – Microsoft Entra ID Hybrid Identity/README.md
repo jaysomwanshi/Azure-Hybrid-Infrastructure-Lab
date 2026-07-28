@@ -50,63 +50,63 @@ Domain Computers
 
 ![Overview](screenshots/03-overview-add-user-quick-actions.png)
 
-![Tenant](screenshots/03-overview-tenant.png)
+![Tenant](screenshots/04-tenant-overview.png)
 
 ### Step 4 – Create Cloud Administrator
 
-![Add User](screenshots/04-add-user-basics.png)
+![Add User](screenshots/05-add-user-basics.png)
 
-![Cloud Admin](screenshots/05-cloud-admin-created.png)
+![Cloud Admin](screenshots/06-cloud-admin-created.png)
 
-![Review](screenshots/06-review-create-user.png)
+![Review](screenshots/07-review-create-user.png)
 
-![Created](screenshots/07-cloud-user-created.png)
+![Created](screenshots/08-cloud-user-created.png)
 
 ### Step 5 – Create Help Desk User
 
-![Help Desk](screenshots/08-create-helpdesk-user.png)
+![Help Desk](screenshots/09-create-helpdesk-user.png)
 
-![Review](screenshots/09-review-create-helpdesk-user.png)
+![Review](screenshots/10-review-create-helpdesk-user.png)
 
 ### Step 6 – Create Security Group
 
-![Group](screenshots/10-new-security-group.png)
+![Group](screenshots/11-new-security-group.png)
 
-![Configuration](screenshots/11-security-group-configuration.png)
+![Configuration](screenshots/12-security-group-configuration.png)
 
-![Overview](screenshots/12-security-group-overview.png)
+![Overview](screenshots/13-security-group-overview.png)
 
-![IT Administrators](screenshots/13-it-administrators-group-overview.png)
+![IT Administrators](screenshots/14-it-administrators-group-overview.png)
 
-![Details](screenshots/14-it-administrators-group-details.png)
+![Details](screenshots/15-it-administrators-group-details.png)
 
 ### Step 7 – Add Members
 
-![Members](screenshots/15-group-members-overview.png)
+![Members](screenshots/16-group-members-overview.png)
 
-![Add Members](screenshots/16-add-members-helpdesk-cloud-admin.png)
+![Add Members](screenshots/17-add-members-helpdesk-cloud-admin.png)
 
-![Added](screenshots/17-members-added.png)
+![Added](screenshots/18-members-added.png)
 
 ### Step 8 – Devices
 
-![Devices](screenshots/18-devices-overview.png)
+![Devices](screenshots/19-devices-overview.png)
 
-![All Devices](screenshots/19-all-devices-overview.png)
+![All Devices](screenshots/20-all-devices-overview.png)
 
-![Details](screenshots/20-devices-details.png)
+![Details](screenshots/21-devices-details.png)
 
 ### Step 9 – Enterprise Applications
 
-![Search](screenshots/21-enterprise-applications-search.png)
+![Search](screenshots/22-enterprise-applications-search.png)
 
-![Overview](screenshots/22-enterprise-applications-overview.png)
+![Overview](screenshots/23-enterprise-applications-overview.png)
 
 ### Step 10 – App Registrations
 
-![Search](screenshots/23-app-registrations-search.png)
+![Search](screenshots/24-app-registrations-search.png)
 
-![Overview](screenshots/24-app-registrations-overview.png)
+![Overview](screenshots/25-app-registrations-overview.png)
 
 ## ✅ Conclusion
 
